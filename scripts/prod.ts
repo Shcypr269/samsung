@@ -25,20 +25,20 @@ const main = async () => {
     db.deleteAll();
 
     const [course] = db.insert("courses", [
-      { title: "English Reading", imageSrc: "/us.svg" },
+      { id: undefined, title: "English Reading", imageSrc: "/us.svg" },
     ]);
 
     const [unit1, unit2] = db.insert("units", [
-      { courseId: course.id, title: "Unit 1", description: "Grades 3–4: Simple passages", order: 1 },
-      { courseId: course.id, title: "Unit 2", description: "Grades 5–8: Longer passages", order: 2 },
+      { id: undefined, courseId: course.id, title: "Unit 1", description: "Grades 3–4: Simple passages", order: 1 },
+      { id: undefined, courseId: course.id, title: "Unit 2", description: "Grades 5–8: Longer passages", order: 2 },
     ]);
 
     const unit1Lessons = db.insert("lessons", [
-      { unitId: unit1.id, title: "Nature & Sky", order: 1 },
-      { unitId: unit1.id, title: "Animals & Pets", order: 2 },
-      { unitId: unit1.id, title: "Weather & Seasons", order: 3 },
-      { unitId: unit1.id, title: "School Days", order: 4 },
-      { unitId: unit1.id, title: "Our World", order: 5 },
+      { id: undefined, unitId: unit1.id, title: "Nature & Sky", order: 1 },
+      { id: undefined, unitId: unit1.id, title: "Animals & Pets", order: 2 },
+      { id: undefined, unitId: unit1.id, title: "Weather & Seasons", order: 3 },
+      { id: undefined, unitId: unit1.id, title: "School Days", order: 4 },
+      { id: undefined, unitId: unit1.id, title: "Our World", order: 5 },
     ]);
 
     const unit1Passages = [
@@ -51,17 +51,17 @@ const main = async () => {
 
     for (let i = 0; i < unit1Lessons.length; i++) {
       db.insert("challenges", [
-        { lessonId: unit1Lessons[i].id, type: "READ", question: unit1Passages[i][0], order: 1 },
-        { lessonId: unit1Lessons[i].id, type: "READ", question: unit1Passages[i][1], order: 2 },
+        { id: undefined, lessonId: unit1Lessons[i].id, type: "READ", question: unit1Passages[i][0], order: 1 },
+        { id: undefined, lessonId: unit1Lessons[i].id, type: "READ", question: unit1Passages[i][1], order: 2 },
       ]);
     }
 
     const unit2Lessons = db.insert("lessons", [
-      { unitId: unit2.id, title: "Science & Nature", order: 1 },
-      { unitId: unit2.id, title: "Space & Exploration", order: 2 },
-      { unitId: unit2.id, title: "Values & Kindness", order: 3 },
-      { unitId: unit2.id, title: "History & Civilisation", order: 4 },
-      { unitId: unit2.id, title: "Technology & Future", order: 5 },
+      { id: undefined, unitId: unit2.id, title: "Science & Nature", order: 1 },
+      { id: undefined, unitId: unit2.id, title: "Space & Exploration", order: 2 },
+      { id: undefined, unitId: unit2.id, title: "Values & Kindness", order: 3 },
+      { id: undefined, unitId: unit2.id, title: "History & Civilisation", order: 4 },
+      { id: undefined, unitId: unit2.id, title: "Technology & Future", order: 5 },
     ]);
 
     const unit2Passages = [
@@ -74,8 +74,8 @@ const main = async () => {
 
     for (let i = 0; i < unit2Lessons.length; i++) {
       db.insert("challenges", [
-        { lessonId: unit2Lessons[i].id, type: "READ", question: unit2Passages[i][0], order: 1 },
-        { lessonId: unit2Lessons[i].id, type: "READ", question: unit2Passages[i][1], order: 2 },
+        { id: undefined, lessonId: unit2Lessons[i].id, type: "READ", question: unit2Passages[i][0], order: 1 },
+        { id: undefined, lessonId: unit2Lessons[i].id, type: "READ", question: unit2Passages[i][1], order: 2 },
       ]);
     }
 
