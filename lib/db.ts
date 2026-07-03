@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 const DB_PATH = join(process.cwd(), ".data", "db.json");
 
-type WithId = { id: number };
+type WithId = { id?: number; [key: string]: any };
 
 type TableSchema = Record<string, WithId[]>;
 
@@ -90,8 +90,8 @@ export const db = {
   ): T[] {
     const data = loadDb();
     const items = data[table] as T[];
-    const lastId = items.reduce((max, item) => Math.max(max, item.id), 0);
-    const inserted = values.map((v, i) => ({ ...v, id: lastId + i + 1 } as T));
+    const lastId = items.reduce((max, item) => Math.max(max, item.id || 0), 0);
+    const inserted = values.map((v, i) => ({ ...v, id: v.id ?? (lastId + i + 1) } as T));
     items.push(...inserted);
     saveDb(data);
     return inserted;

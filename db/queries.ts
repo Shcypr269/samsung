@@ -210,8 +210,8 @@ export function getReadingAttempts(): ReadingAttempt[] {
   });
 
   return attempts.map((a) => {
-    const challenge = db.findFirst<Challenge>("challenges", { where: { id: a.challengeId } });
-    const lesson = db.findFirst<Lesson>("lessons", { where: { id: a.lessonId } });
+    const challenge = db.findFirst<Challenge>("challenges", { where: { id: a.challengeId } }) ?? undefined;
+    const lesson = db.findFirst<Lesson>("lessons", { where: { id: a.lessonId } }) ?? undefined;
     return { ...a, challenge, lesson };
   });
 }

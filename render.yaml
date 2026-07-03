@@ -1,0 +1,24 @@
+# render.yaml — Render Blueprint for Reading Buddy
+# Deploy as a Web Service (not Static Site) because
+# Next.js uses server-side API routes and server actions.
+
+services:
+  - type: web
+    name: reading-buddy
+    runtime: node
+    region: oregon
+    plan: free
+    branch: frontend-updates
+    buildCommand: npm install --legacy-peer-deps && npm run db:prod && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: "20.18.0"
+      - key: SARVAM_API_KEY
+        sync: false  # Set in Render Dashboard
+      - key: GROQ_API_KEY
+        sync: false  # Set in Render Dashboard (optional)
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false  # Set to your Render URL, e.g. https://reading-buddy.onrender.com
+      - key: NODE_ENV
+        value: production

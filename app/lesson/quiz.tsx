@@ -26,7 +26,7 @@ type QuizProps = {
   initialPercentage: number;
   initialHearts: number;
   initialLessonId: number;
-  initialLessonChallenges: (Challenge & {
+  initialLessonChallenges: (ChallengeData & {
     completed: boolean;
     challengeOptions: ChallengeOption[];
   })[];

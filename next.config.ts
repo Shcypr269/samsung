@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   headers: async () => [
     {
       source: "/api/(.*)",
@@ -27,3 +28,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+

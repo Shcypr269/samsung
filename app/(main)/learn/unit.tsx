@@ -13,8 +13,9 @@ type UnitProps = {
   })[];
   activeLesson:
     | (Lesson & {
-        unit: { id: number; title: string; description: string; courseId: number; order: number };
+        unit?: { id: number; title: string; description: string; courseId: number; order: number };
       })
+    | null
     | undefined;
   activeLessonPercentage: number;
 };
