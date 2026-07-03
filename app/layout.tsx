@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 
